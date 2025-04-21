@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Riddle Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #004d40;
+        }
+        #riddle-box {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: #333;
+            min-height: 60px;
+        }
+        #answer-box {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
+            min-height: 40px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #004d40;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧠 Riddle Generator 🧠</h1>
+
+    <div id="riddle-box">Click below to get a riddle!</div>
+    <div id="answer-box"></div>
+
+    <button onclick="generateRiddle()">Get a Riddle</button>
+    <button onclick="showAnswer()">Show Answer</button>
+
+    <script>
+        const riddles = [
+            { question: "What has keys but can't open locks?", answer: "A Piano" },
+            { question: "What gets wetter the more it dries?", answer: "A Towel" },
+            { question: "What has a head, a tail, but no body?", answer: "A Coin" },
+            { question: "I speak without a mouth and hear without ears. What am I?", answer: "An Echo" },
+            { question: "The more you take, the more you leave behind. What am I?", answer: "Footsteps" },
+            { question: "What comes once in a minute, twice in a moment, but never in a thousand years?", answer: "The Letter 'M'" },
+            { question: "What begins with T, finishes with T, and has T in it?", answer: "A Teapot" },
+            { question: "I’m tall when I’m young, and short when I’m old. What am I?", answer: "A Candle" },
+            { question: "What runs all around a backyard, yet never moves?", answer: "A Fence" },
+            { question: "What can fill a room but takes up no space?", answer: "Light" }
+        ];
+
+        let currentRiddle = {};
+
+        function generateRiddle() {
+            const randomIndex = Math.floor(Math.random() * riddles.length);
+            currentRiddle = riddles[randomIndex];
+            document.getElementById('riddle-box').innerText = currentRiddle.question;
+            document.getElementById('answer-box').innerText = ''; // Clear previous answer
+        }
+
+        function showAnswer() {
+            if (currentRiddle.answer) {
+                document.getElementById('answer-box').innerText = currentRiddle.answer;
+            } else {
+                document.getElementById('answer-box').innerText = "Please get a riddle first!";
+            }
+        }
+    </script>
+</body>
+</html>
