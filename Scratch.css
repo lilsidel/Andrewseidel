@@ -24,9 +24,9 @@ body {
 .nav {
     background-color: #FF1744;
     padding: 10px;
-    text-align: left;
+    display: flex;
+    gap: 75px; /* Space between links */
 }
-
 .nav a {
     color: white;
     text-decoration: none;
